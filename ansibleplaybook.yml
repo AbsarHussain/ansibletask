@@ -1,16 +1,6 @@
-- name: Play Web - Create apache directories and username in web servers
-    hosts: webservers
-    become: yes
-    become_user: root
-    tasks:
-      - name: create username apacheadm
-        user:
-          name: apacheadm
-          group: users,admin
-          shell: /bin/bash
-          home: /home/weblogic
-
-      - name: install httpd
-        yum:
-          name: httpd
-          state: installed
+- hosts: all
+  tasks:
+  - name: ansible create directory example
+    file:
+      path: /tmp/devops_directory
+      state: directory
